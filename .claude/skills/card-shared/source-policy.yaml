@@ -187,8 +187,9 @@ fast_search_policy:
       max_secondary: 4
     card-news:
       issuer_first: true
-      max_secondary: 4
-      notes: Broader secondary scan allowed but still capped.
+      max_secondary: 2
+      parallel: true
+      notes: Issuer fetch and secondary searches run in parallel. Narrow cap keeps total time under budget.
     card-compare:
       issuer_first: true
       max_secondary: 4
