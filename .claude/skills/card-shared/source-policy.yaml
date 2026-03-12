@@ -41,7 +41,7 @@ issuer_source_notes:
 
 secondary_domains:
   selected_on: 2026-03-12
-  methodology: traffic-informed shortlist of mainstream finance publishers plus news-oriented points-and-miles sites, ordered by combined reach, update frequency, and editorial depth rather than traffic alone
+  methodology: curated shortlist of 6 high-signal sources — best mainstream reviewer, best points-and-miles sites, best breaking-news tracker
   approved_for:
     - best_public_signup_offer
     - missing_benefit_details
@@ -52,92 +52,44 @@ secondary_domains:
       domain: nerdwallet.com
       url: https://www.nerdwallet.com
       category: mainstream-finance
+      best_for: [card-full, card-compare, card-value]
     - rank: 2
-      name: Bankrate Credit Cards
-      domain: bankrate.com
-      url: https://www.bankrate.com/credit-cards/
-      category: mainstream-finance
-    - rank: 3
-      name: Credit Karma Credit Cards
-      domain: creditkarma.com
-      url: https://www.creditkarma.com/credit-cards
-      category: mainstream-finance
-    - rank: 4
-      name: CNBC Select Credit Cards
-      domain: cnbc.com
-      url: https://www.cnbc.com/select/credit-cards/
-      category: mainstream-finance
-    - rank: 5
-      name: Investopedia Credit Cards
-      domain: investopedia.com
-      url: https://www.investopedia.com/credit-cards-4689721
-      category: mainstream-finance
-    - rank: 6
-      name: WalletHub Credit Cards
-      domain: wallethub.com
-      url: https://wallethub.com/credit-cards
-      category: mainstream-finance
-    - rank: 7
-      name: LendingTree Credit Cards
-      domain: lendingtree.com
-      url: https://www.lendingtree.com/credit-cards/
-      category: mainstream-finance
-    - rank: 8
-      name: Business Insider Credit Cards
-      domain: businessinsider.com
-      url: https://www.businessinsider.com/personal-finance/credit-cards
-      category: mainstream-finance
-    - rank: 9
-      name: The Points Guy Credit Cards
+      name: The Points Guy
       domain: thepointsguy.com
       url: https://thepointsguy.com/credit-cards/
       category: points-and-miles
-    - rank: 10
+      best_for: [card-full, card-transfer, card-value, card-news]
+    - rank: 3
       name: Doctor of Credit
       domain: doctorofcredit.com
       url: https://www.doctorofcredit.com/credit-cards/
       category: points-and-miles
-    - rank: 11
-      name: One Mile at a Time Guides
+      best_for: [card-news, card-full]
+    - rank: 4
+      name: Bankrate Credit Cards
+      domain: bankrate.com
+      url: https://www.bankrate.com/credit-cards/
+      category: mainstream-finance
+      best_for: [card-rate, card-credits]
+    - rank: 5
+      name: One Mile at a Time
       domain: onemileatatime.com
       url: https://onemileatatime.com/guides/credit-cards/
       category: points-and-miles
-    - rank: 12
-      name: Upgraded Points Credit Cards
+      best_for: [card-credits, card-compare]
+    - rank: 6
+      name: Upgraded Points
       domain: upgradedpoints.com
       url: https://upgradedpoints.com/credit-cards/
       category: points-and-miles
-    - rank: 13
-      name: Frequent Miler Credit Cards
-      domain: frequentmiler.com
-      url: https://frequentmiler.com/credit-cards/
-      category: points-and-miles
-    - rank: 14
-      name: Thrifty Traveler Credit Cards
-      domain: thriftytraveler.com
-      url: https://thriftytraveler.com/
-      category: points-and-miles
-    - rank: 15
-      name: AwardWallet Blog
-      domain: awardwallet.com
-      url: https://awardwallet.com/blog/
-      category: points-and-miles
+      best_for: [card-transfer, card-wallet]
   domains:
     - nerdwallet.com
-    - bankrate.com
-    - creditkarma.com
-    - cnbc.com
-    - investopedia.com
-    - wallethub.com
-    - lendingtree.com
-    - businessinsider.com
     - thepointsguy.com
     - doctorofcredit.com
+    - bankrate.com
     - onemileatatime.com
     - upgradedpoints.com
-    - frequentmiler.com
-    - thriftytraveler.com
-    - awardwallet.com
 
 disallowed_sources:
   - reddit.com
@@ -174,33 +126,41 @@ fast_search_policy:
       action: Assemble compact output. If fields remain unresolved, mark them in confidence_notes rather than continuing to search.
   command_source_ceilings:
     card-rate:
-      issuer_first: true
-      max_secondary: 2
+      strategy: knowledge-first
+      max_secondary: 0
+      notes: Issuer page + training data only.
     card-credits:
-      issuer_first: true
-      max_secondary: 2
+      strategy: knowledge-first
+      max_secondary: 0
+      notes: Issuer page + training data only.
     card-transfer:
-      issuer_first: true
-      max_secondary: 2
+      strategy: knowledge-first
+      max_secondary: 0
+      notes: Issuer page + training data only.
+    card-wallet:
+      strategy: knowledge-first
+      max_secondary: 0
+      notes: One issuer page per card + training data only.
     card-full:
-      issuer_first: true
-      max_secondary: 4
-    card-news:
-      issuer_first: true
+      strategy: search-required
       max_secondary: 2
       parallel: true
-      notes: Issuer fetch and secondary searches run in parallel. Narrow cap keeps total time under budget.
-    card-compare:
-      issuer_first: true
-      max_secondary: 4
-      notes: Shared budget across both cards.
-    card-value:
-      issuer_first: true
+      preferred: [nerdwallet.com, thepointsguy.com]
+    card-news:
+      strategy: search-required
       max_secondary: 2
-    card-wallet:
-      issuer_first: true
-      max_secondary: 4
-      notes: Shared budget across all cards in the wallet.
+      parallel: true
+      preferred: [doctorofcredit.com, thepointsguy.com]
+    card-compare:
+      strategy: search-required
+      max_secondary: 2
+      parallel: true
+      preferred: [nerdwallet.com, thepointsguy.com]
+    card-value:
+      strategy: search-required
+      max_secondary: 2
+      parallel: true
+      preferred: [nerdwallet.com, thepointsguy.com]
   stop_rules:
     - Stop once all required contract fields are covered.
     - Do not chase optional details after the contract is satisfied.

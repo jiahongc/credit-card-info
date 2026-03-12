@@ -12,14 +12,19 @@ allowed-tools: Read, WebSearch, WebFetch, Bash(curl -sS *)
 
 Return the earning-structure view of one exact card variant in compact format.
 
+## Search Strategy: knowledge-first
+
+Use training knowledge plus one issuer page fetch. Do NOT search secondary sources. Do NOT spawn a subagent — answer directly.
+
 ## Workflow
 
 1. Resolve the card using [../card-identity/SKILL.md](../card-identity/SKILL.md). If ambiguous, return a numbered choice list and stop.
-2. Follow the fast-search policy in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml): issuer rates and terms first, up to 2 secondary sources for merchant-coding or caveats.
-3. Follow [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
-4. Return compact markdown using the `card-rate` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
-5. YAML is internal only — do not include it in user-facing output.
-6. Do not show inline links, a sources footer, or a "Why It Matters" section.
+2. Fetch the issuer's official product page for the card (one WebFetch or WebSearch call). Use the issuer domains in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml).
+3. Combine the issuer page data with training knowledge to fill all required sections. Do not search secondary sources.
+4. Follow [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md). Flag any detail that may have changed since training data.
+5. Return compact markdown using the `card-rate` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
+6. YAML is internal only — do not include it in user-facing output.
+7. Do not show inline links, a sources footer, or a "Why It Matters" section.
 
 ## Required Sections
 

@@ -18,11 +18,15 @@ The user provides a comma-separated list of card names:
 
 - `/card-wallet Chase Sapphire Preferred, Amex Gold, Citi Double Cash`
 
+## Search Strategy: knowledge-first
+
+Use training knowledge plus one issuer page fetch per card. Do NOT search secondary sources. Do NOT spawn a subagent — answer directly.
+
 ## Workflow
 
 1. Parse the card list from the input (comma-separated).
 2. Resolve each card using [../card-identity/SKILL.md](../card-identity/SKILL.md). If any card is ambiguous, return a numbered choice list for that card and stop.
-3. Follow the fast-search policy in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml): research all cards, issuer pages first, up to 4 secondary sources total across all cards.
+3. For each card, fetch that issuer's official product page (one fetch per card, run in parallel). Do not search secondary sources. Supplement with training knowledge.
 4. For each card, collect: annual fee, top earning categories, statement credits, and key benefits.
 5. Identify: overlapping earning categories (where two cards cover the same spend at different rates), uncovered spend categories (common categories not covered at a bonus rate by any card), redundant benefits (same benefit on multiple cards), and total annual fee burden.
 6. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).

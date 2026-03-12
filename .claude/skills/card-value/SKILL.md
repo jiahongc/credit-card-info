@@ -21,10 +21,14 @@ The user provides a card name followed by an optional spending breakdown:
 
 If no breakdown is given, use a default moderate-spender profile ($500/mo dining, $200/mo travel, $100/mo streaming, $200/mo groceries, $2000/mo other).
 
+## Search Strategy: search-required
+
+Fetch the issuer page + up to 2 secondary sources for current SUB details. Prefer NerdWallet and The Points Guy. Run searches in parallel.
+
 ## Workflow
 
 1. Resolve the card using [../card-identity/SKILL.md](../card-identity/SKILL.md). If ambiguous, return a numbered choice list and stop.
-2. Follow the fast-search policy in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml): issuer pages first, up to 2 secondary sources for offer or rate details.
+2. In parallel: fetch the issuer's official product page AND search up to 2 secondary sources (prefer NerdWallet, The Points Guy) for current welcome offer details.
 3. Research: annual fee, welcome offer (bonus + spend requirement), earning rates by category, and statement credits.
 4. Compute: `first_year_value = welcome_bonus_value + annual_earn_value + total_credits - annual_fee`.
 5. Use 1 cpp as the baseline point value unless the card has a known portal or transfer premium (note the assumed valuation in confidence notes).

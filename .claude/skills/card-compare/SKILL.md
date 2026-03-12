@@ -12,11 +12,15 @@ allowed-tools: Read, WebSearch, WebFetch, Bash(curl -sS *)
 
 Return a compact side-by-side comparison of two exact card variants.
 
+## Search Strategy: search-required
+
+Fetch both issuer pages in parallel + up to 2 secondary sources total for current offer details. Prefer NerdWallet and The Points Guy.
+
 ## Workflow
 
 1. Parse two card names from the input (separated by "vs", "versus", "or", or a comma).
 2. Resolve each card using [../card-identity/SKILL.md](../card-identity/SKILL.md). If either is ambiguous, return a numbered choice list for the ambiguous card and stop.
-3. Follow the fast-search policy in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml): research both cards in parallel, issuer pages first, up to 4 secondary sources total (not per card).
+3. In parallel: fetch both issuers' product pages AND search up to 2 secondary sources total (prefer NerdWallet, The Points Guy) for current welcome offers or details the issuer pages lack.
 4. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
 5. Return compact markdown using the `card-compare` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
 6. YAML is internal only — do not include it in user-facing output.

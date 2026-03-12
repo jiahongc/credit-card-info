@@ -12,10 +12,14 @@ allowed-tools: Read, WebSearch, WebFetch, Bash(curl -sS *)
 
 Return a compact, complete card framework for one exact card variant.
 
+## Search Strategy: search-required
+
+Fetch the issuer page first, then up to 2 secondary sources for current SUB/offer details. Prefer NerdWallet and The Points Guy. Run searches in parallel.
+
 ## Workflow
 
 1. Resolve the card using [../card-identity/SKILL.md](../card-identity/SKILL.md). If ambiguous, return a numbered choice list and stop.
-2. Follow the fast-search policy in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml): issuer pages first, stop early if the contract is satisfied, consult up to 4 secondary sources only for unresolved sections.
+2. Fetch the issuer's official product page. In parallel, search up to 2 secondary sources (prefer NerdWallet, The Points Guy) for current welcome offer and any details the issuer page lacks. Stop early if the issuer page fully satisfies the contract.
 3. Follow section composition rules from [../card-shared/section-definitions.md](../card-shared/section-definitions.md).
 4. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
 5. Return compact markdown using the `card-full` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).

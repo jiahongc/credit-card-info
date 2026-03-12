@@ -12,11 +12,15 @@ allowed-tools: Read, WebSearch, WebFetch, Bash(curl -sS *)
 
 Return the last-3-month news view of one exact card variant in compact format.
 
+## Search Strategy: search-required
+
+Fetch issuer newsroom + up to 2 secondary sources for recent coverage. Prefer Doctor of Credit and The Points Guy. Run all searches in parallel.
+
 ## Workflow
 
 1. Resolve the card using [../card-identity/SKILL.md](../card-identity/SKILL.md). If ambiguous, return a numbered choice list and stop.
 2. Apply the 3-month lookback and inclusion rules from [../card-shared/recency-rules.md](../card-shared/recency-rules.md).
-3. Follow the fast-search policy in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml): issuer pages first, then a small recent-news scan across up to 2 approved secondary sources. Fire the issuer fetch and secondary searches in parallel — do not wait for the issuer result before starting secondary searches.
+3. In parallel: fetch the issuer newsroom/product page AND search up to 2 secondary sources (prefer Doctor of Credit, The Points Guy) for recent card news.
 4. Follow [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
 5. Return compact markdown using the `card-news` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
 6. YAML is internal only — do not include it in user-facing output.
