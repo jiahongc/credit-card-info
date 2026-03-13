@@ -51,6 +51,23 @@ Normalize the card name and resolve to an exact issuer + family + variant.
 | Robinhood | Robinhood Gold Card / Cash Card (ambiguous — ask) |
 | Robinhood Gold | Robinhood Gold Card |
 | Robinhood Cash | Robinhood Cash Card |
+| Amex Biz Gold | American Express Business Gold Card |
+| Amex Biz Plat | American Express Business Platinum Card |
+| Amex Blue Biz Plus | American Express Blue Business Plus Card |
+| Amex Blue Biz Cash | American Express Blue Business Cash Card |
+| Ink Preferred | Chase Ink Business Preferred |
+| Ink Cash | Chase Ink Business Cash |
+| Ink Unlimited | Chase Ink Business Unlimited |
+| CIU | Chase Ink Business Unlimited |
+| CIC | Chase Ink Business Cash |
+| CIP | Chase Ink Business Preferred |
+| Spark Cash Plus | Capital One Spark Cash Plus |
+| Spark Miles | Capital One Spark Miles |
+| Venture X Business | Capital One Venture X Business Card |
+
+### Business vs Personal
+
+Both personal and business credit cards are supported. If the user specifies "business" or "biz", resolve to the business variant. If a card name exists in both versions and the user does not specify, treat as ambiguous and ask.
 
 ### Ambiguity Rules
 

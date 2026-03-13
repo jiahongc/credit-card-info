@@ -58,6 +58,19 @@ Default moderate-spender profile (if none given): $500/mo dining, $200/mo travel
 | Robinhood | Robinhood Gold Card / Cash Card (ambiguous — ask) |
 | Robinhood Gold | Robinhood Gold Card |
 | Robinhood Cash | Robinhood Cash Card |
+| Amex Biz Gold | American Express Business Gold Card |
+| Amex Biz Plat | American Express Business Platinum Card |
+| Amex Blue Biz Plus | American Express Blue Business Plus Card |
+| Amex Blue Biz Cash | American Express Blue Business Cash Card |
+| Ink Preferred | Chase Ink Business Preferred |
+| Ink Cash | Chase Ink Business Cash |
+| Ink Unlimited | Chase Ink Business Unlimited |
+| CIU | Chase Ink Business Unlimited |
+| CIC | Chase Ink Business Cash |
+| CIP | Chase Ink Business Preferred |
+| Spark Cash Plus | Capital One Spark Cash Plus |
+| Spark Miles | Capital One Spark Miles |
+| Venture X Business | Capital One Venture X Business Card |
 
 ### Supported Issuers
 

@@ -2,7 +2,7 @@
 
 ![Credit Card Skills](social-preview.png)
 
-> Research any major US credit card in ~2 minutes — earning rates, transfer partners, credits, news, comparisons, and value estimates. Works with Claude Code, OpenAI Codex, Cursor, Gemini CLI, and any [Agent Skills](https://agentskills.io)-compatible tool.
+> Research any major US credit card (personal or business) in ~2 minutes — earning rates, transfer partners, credits, news, comparisons, and value estimates. Works with Claude Code, OpenAI Codex, Cursor, Gemini CLI, and any [Agent Skills](https://agentskills.io)-compatible tool.
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-4f46e5?style=flat-square)](https://agentskills.io)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-ready-D97706?style=flat-square)](https://code.claude.com)
