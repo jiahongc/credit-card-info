@@ -53,6 +53,13 @@ When the match is the best-supported variant but not certain:
 | Savor | Capital One SavorOne / Savor (ambiguous — ask) |
 | Double Cash | Citi Double Cash Card |
 | Custom Cash | Citi Custom Cash Card |
+| Bilt | Bilt Blue / Obsidian / Palladium (ambiguous — ask) |
+| Bilt Blue | Bilt Blue Card |
+| Bilt Obsidian | Bilt Obsidian Card |
+| Bilt Palladium | Bilt Palladium Card |
+| Robinhood | Robinhood Gold Card / Cash Card (ambiguous — ask) |
+| Robinhood Gold | Robinhood Gold Card |
+| Robinhood Cash | Robinhood Cash Card |
 
 ## Rules Reference
 

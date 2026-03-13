@@ -231,7 +231,7 @@ Runs 12 fixture validations + composition check + cross-fixture consistency chec
 
 ## Notes
 
-- Major US issuers only (Amex, Chase, Capital One, Citi, Bank of America, Discover, Wells Fargo)
+- Major US card brands (Amex, Chase, Capital One, Citi, Bank of America, Bilt, Discover, Robinhood, Wells Fargo)
 - `/card-news` is intentionally independent from `/card-full` — news is time-windowed and conceptually separate
 - YAML output contracts are internal only and never appear in user-facing output
 - See [`sample-outputs.md`](sample-outputs.md) for 10 real example outputs across all 8 commands

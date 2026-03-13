@@ -44,6 +44,13 @@ Normalize the card name and resolve to an exact issuer + family + variant.
 | Savor | Capital One SavorOne / Savor (ambiguous — ask) |
 | Double Cash | Citi Double Cash Card |
 | Custom Cash | Citi Custom Cash Card |
+| Bilt | Bilt Blue / Obsidian / Palladium (ambiguous — ask) |
+| Bilt Blue | Bilt Blue Card |
+| Bilt Obsidian | Bilt Obsidian Card |
+| Bilt Palladium | Bilt Palladium Card |
+| Robinhood | Robinhood Gold Card / Cash Card (ambiguous — ask) |
+| Robinhood Gold | Robinhood Gold Card |
+| Robinhood Cash | Robinhood Cash Card |
 
 ### Ambiguity Rules
 
@@ -52,7 +59,7 @@ Normalize the card name and resolve to an exact issuer + family + variant.
 
 ### Supported Issuers
 
-American Express, Bank of America, Capital One, Chase, Citi, Discover, Wells Fargo. If the card is from an unsupported issuer, return: "This card is not from a supported issuer."
+American Express, Bank of America, Bilt, Capital One, Chase, Citi, Discover, Robinhood, Wells Fargo. If the card is from an unsupported issuer, return: "This card is not from a supported issuer."
 
 ## Step 2: Search
 
@@ -84,10 +91,12 @@ Parse the JSON response — results are in `.web.results[]` with `.title`, `.url
 |---|---|
 | American Express | americanexpress.com, aboutamex.com |
 | Bank of America | bankofamerica.com |
+| Bilt | bfrrewards.com |
 | Capital One | capitalone.com |
 | Chase | chase.com, media.chase.com |
 | Citi | citi.com, citicards.com |
 | Discover | discover.com |
+| Robinhood | robinhood.com |
 | Wells Fargo | wellsfargo.com |
 
 ## Step 3: Required Output Sections

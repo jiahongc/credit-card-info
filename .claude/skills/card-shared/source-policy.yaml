@@ -4,12 +4,14 @@ scope:
   issuers:
     - American Express
     - Bank of America
+    - Bilt
     - Capital One
     - Chase
     - Citi
     - Discover
+    - Robinhood
     - Wells Fargo
-  rule: major-us-issuers-only
+  rule: major-us-card-brands
 
 issuer_domains:
   American Express:
@@ -18,6 +20,9 @@ issuer_domains:
   Bank of America:
     - bankofamerica.com
     - newsroom.bankofamerica.com
+  Bilt:
+    - bfrrewards.com
+    - bfrrewards.com/credit-cards
   Capital One:
     - capitalone.com
     - capitalone.com/about
@@ -30,6 +35,9 @@ issuer_domains:
     - blog.citigroup.com
   Discover:
     - discover.com
+  Robinhood:
+    - robinhood.com
+    - robinhood.com/credit-card
   Wells Fargo:
     - wellsfargo.com
     - newsroom.wf.com

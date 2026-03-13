@@ -44,6 +44,13 @@ Normalize the card name and resolve to an exact issuer + family + variant.
 | Savor | Capital One SavorOne / Savor (ambiguous — ask) |
 | Double Cash | Citi Double Cash Card |
 | Custom Cash | Citi Custom Cash Card |
+| Bilt | Bilt Blue / Obsidian / Palladium (ambiguous — ask) |
+| Bilt Blue | Bilt Blue Card |
+| Bilt Obsidian | Bilt Obsidian Card |
+| Bilt Palladium | Bilt Palladium Card |
+| Robinhood | Robinhood Gold Card / Cash Card (ambiguous — ask) |
+| Robinhood Gold | Robinhood Gold Card |
+| Robinhood Cash | Robinhood Cash Card |
 
 ### Ambiguity Rules
 
@@ -52,7 +59,7 @@ Normalize the card name and resolve to an exact issuer + family + variant.
 
 ### Supported Issuers
 
-American Express, Bank of America, Capital One, Chase, Citi, Discover, Wells Fargo.
+American Express, Bank of America, Bilt, Capital One, Chase, Citi, Discover, Robinhood, Wells Fargo.
 
 ## Step 2: Search (Issuer Only)
 
@@ -69,10 +76,12 @@ curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+site:ISSUER
 |---|---|
 | American Express | americanexpress.com |
 | Bank of America | bankofamerica.com |
+| Bilt | bfrrewards.com |
 | Capital One | capitalone.com |
 | Chase | chase.com |
 | Citi | citi.com |
 | Discover | discover.com |
+| Robinhood | robinhood.com |
 | Wells Fargo | wellsfargo.com |
 
 Use up to 1 secondary source (prefer Bankrate) for merchant-coding caveats if needed. Combine the issuer search snippets with training knowledge.
