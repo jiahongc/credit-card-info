@@ -33,7 +33,7 @@ Use training knowledge plus one issuer page fetch + one secondary source for mer
 5. Follow [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md). Flag any detail that may have changed since training data.
 6. Return compact markdown using the `card-rate` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
 7. YAML is internal only — do not include it in user-facing output.
-8. Do not show inline links, a sources footer, or a "Why It Matters" section.
+8. Do not show a "Why It Matters" section.
 
 ## Required Sections
 
@@ -41,5 +41,6 @@ Use training knowledge plus one issuer page fetch + one secondary source for mer
 - `## 📈 Earning Categories`
 - `## 🚫 Caps And Exclusions`
 - `## 📋 Confidence Notes`
+- `## 🔗 Sources`
 
 Omit `## Card Identity` when the match is confident. Use short category lines and a compact exclusions/caps block.

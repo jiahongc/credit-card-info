@@ -33,7 +33,7 @@ Fetch the issuer page first, then up to 5 secondary sources for current SUB/offe
 4. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
 5. Return compact markdown using the `card-full` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
 6. YAML is internal only — do not include it in user-facing output.
-7. Do not show inline links, a sources footer, or a "Why It Matters" section.
+7. Do not show a "Why It Matters" section.
 
 ## Required Sections
 
@@ -48,6 +48,7 @@ Fetch the issuer page first, then up to 5 secondary sources for current SUB/offe
 - `## ✅ Eligibility`
 - `## 🧭 Strategy`
 - `## 📋 Confidence Notes`
+- `## 🔗 Sources` — numbered list of URLs fetched, as markdown hyperlinks with short "Site - Topic" labels, e.g. `[Chase - Sapphire Preferred](https://...)`
 
 Omit `## Card Identity` when the match is confident. Each section should contain condensed facts in numbered lists where appropriate.
 

@@ -44,7 +44,7 @@ Fetch the issuer page + up to 5 secondary sources for current SUB details. Prefe
 6. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
 7. Return compact markdown using the `card-value` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
 8. YAML is internal only — do not include it in user-facing output.
-9. Do not show inline links, a sources footer, or a "Why It Matters" section.
+9. Do not show a "Why It Matters" section.
 
 ## Required Sections
 
@@ -54,5 +54,6 @@ Fetch the issuer page + up to 5 secondary sources for current SUB details. Prefe
 - `## 🏷️ Credits` — statement credits and complimentary subscriptions only; not enhanced earn rates or point multipliers
 - `## 💰 Net First-Year Value`
 - `## 📋 Confidence Notes`
+- `## 🔗 Sources` — numbered list of URLs fetched, as markdown hyperlinks with short "Site - Topic" labels, e.g. `[Chase - Sapphire Preferred](https://...)`
 
 Omit `## Card Identity` when the match is confident. The Net First-Year Value section should show the math clearly in one compact block.

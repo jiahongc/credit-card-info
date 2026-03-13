@@ -120,13 +120,17 @@ Minimum transfer amounts, transfer fees, irreversibility, partner-specific restr
 ### `## 📋 Confidence Notes`
 Flag any detail that may have changed since training data.
 
+### `## 🔗 Sources`
+Numbered list of URLs fetched, as markdown hyperlinks with short "Site - Topic" labels.
+
 ## Output Rules
 
 - Use one emoji per section heading and numbered lists
 - When listing credits, fees, or any monetary amounts, sort from highest to lowest dollar value. for partners.
 - Keep content to condensed facts — no prose padding.
 - Omit the Card Identity section when the match is confident.
-- Do not show inline links, sources footer, or YAML blocks in output.
+- Do not show YAML blocks in output.
+- End every report with a `## 🔗 Sources` section listing each URL fetched during research as a markdown hyperlink with a short "Site - Topic" label, e.g. `[Chase - Sapphire Preferred](https://...)`.
 
 ## Confidence Definitions
 

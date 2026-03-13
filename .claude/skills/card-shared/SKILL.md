@@ -29,7 +29,7 @@ This hidden skill holds the shared rules for the card command suite. User-facing
 3. Mark uncertain or conflicting claims explicitly in `confidence_notes`.
 4. Return compact markdown with emoji section headings and numbered lists.
 5. YAML is internal only — never include it in user-facing output.
-6. Do not show inline links or a sources footer in user-facing output.
+6. End every report with a `## 🔗 Sources` section listing each URL fetched during research as a markdown hyperlink with a short "Site - Topic" label, e.g. `[Chase - Sapphire Preferred](https://...)`.
 7. Omit the Card Identity section when the match is confident.
 
 ## Composition Note

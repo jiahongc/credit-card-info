@@ -123,13 +123,17 @@ Numbered list of material changes with date and short summary per item.
 ### `## 📋 Confidence Notes`
 Flag any uncertain, unconfirmed, or conflicting claims.
 
+### `## 🔗 Sources`
+Numbered list of URLs fetched, as markdown hyperlinks with short "Site - Topic" labels.
+
 ## Output Rules
 
 - Use one emoji per section heading and numbered lists
 - When listing credits, fees, or any monetary amounts, sort from highest to lowest dollar value. for updates.
 - Keep content to condensed facts — no prose padding.
 - Omit the Card Identity section when the match is confident.
-- Do not show inline links, sources footer, or YAML blocks in output.
+- Do not show YAML blocks in output.
+- End every report with a `## 🔗 Sources` section listing each URL fetched during research as a markdown hyperlink with a short "Site - Topic" label, e.g. `[Doctor of Credit - Amex Gold Changes](https://...)`.
 
 ## Confidence Definitions
 

@@ -33,7 +33,7 @@ Fetch both issuer pages in parallel + up to 5 secondary sources total for curren
 5. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
 5. Return compact markdown using the `card-compare` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
 6. YAML is internal only — do not include it in user-facing output.
-7. Do not show inline links, a sources footer, or a "Why It Matters" section.
+7. Do not show a "Why It Matters" section.
 
 ## Required Sections
 
@@ -44,5 +44,6 @@ Fetch both issuer pages in parallel + up to 5 secondary sources total for curren
 - `## ✈️ Key Benefits`
 - `## 🏆 Bottom Line`
 - `## 📋 Confidence Notes`
+- `## 🔗 Sources` — numbered list of URLs fetched, as markdown hyperlinks with short "Site - Topic" labels, e.g. `[NerdWallet - CSR vs Amex Gold](https://...)`
 
 Omit `## Card Identity` when both matches are confident. Use a two-column format (Card A | Card B) for the comparison sections. The Bottom Line section should give a concise factual summary of which card wins in each major dimension — not a recommendation.

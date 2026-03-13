@@ -127,6 +127,9 @@ Show the math clearly: `welcome_bonus + annual_earn + credits - annual_fee = net
 ### `## 📋 Confidence Notes`
 Flag any uncertain claims. Note the cpp valuation assumed.
 
+### `## 🔗 Sources`
+Numbered list of URLs fetched, as markdown hyperlinks with short "Site - Topic" labels.
+
 ## Output Rules
 
 - Use one emoji per section heading.
@@ -134,7 +137,8 @@ Flag any uncertain claims. Note the cpp valuation assumed.
 - Show the math clearly in the Net First-Year Value section.
 - Keep content to condensed facts — no prose padding.
 - Omit the Card Identity section when the match is confident.
-- Do not show inline links, sources footer, or YAML blocks in output.
+- Do not show YAML blocks in output.
+- End every report with a `## 🔗 Sources` section listing each URL fetched during research as a markdown hyperlink with a short "Site - Topic" label, e.g. `[Chase - Sapphire Preferred](https://...)`.
 
 ## Confidence Definitions
 

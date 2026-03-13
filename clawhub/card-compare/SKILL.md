@@ -130,6 +130,9 @@ Concise factual summary of which card wins in each major dimension — not a rec
 ### `## 📋 Confidence Notes`
 Flag any uncertain, unconfirmed, or conflicting claims.
 
+### `## 🔗 Sources`
+Numbered list of URLs fetched, as markdown hyperlinks with short "Site - Topic" labels.
+
 ## Output Rules
 
 - Use two-column format (Card A | Card B) for comparison sections.
@@ -137,7 +140,8 @@ Flag any uncertain, unconfirmed, or conflicting claims.
 - When listing credits, fees, or any monetary amounts, sort from highest to lowest dollar value.
 - Keep content to condensed facts — no prose padding.
 - Omit the Card Identity section when both matches are confident.
-- Do not show inline links, sources footer, or YAML blocks in output.
+- Do not show YAML blocks in output.
+- End every report with a `## 🔗 Sources` section listing each URL fetched during research as a markdown hyperlink with a short "Site - Topic" label, e.g. `[NerdWallet - CSR vs Amex Gold](https://...)`.
 
 ## Confidence Definitions
 

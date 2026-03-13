@@ -33,7 +33,7 @@ Fetch issuer newsroom + up to 5 secondary sources for recent coverage. Prefer Do
 5. Follow [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
 5. Return compact markdown using the `card-news` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
 6. YAML is internal only — do not include it in user-facing output.
-7. Do not show inline links, a sources footer, or a "Why It Matters" section.
+7. Do not show a "Why It Matters" section.
 
 ## Required Sections
 
@@ -41,5 +41,6 @@ Fetch issuer newsroom + up to 5 secondary sources for recent coverage. Prefer Do
 - `## 📰 Recent Updates`
 - `## 📝 Summary`
 - `## 📋 Confidence Notes`
+- `## 🔗 Sources` — numbered list of URLs fetched, as markdown hyperlinks with short "Site - Topic" labels, e.g. `[Doctor of Credit - Amex Gold Changes](https://...)`
 
 Omit `## Card Identity` when the match is confident. Use a numbered list for recent updates with a short summary line per item.

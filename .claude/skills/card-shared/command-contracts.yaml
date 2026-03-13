@@ -10,7 +10,7 @@ shared:
     - confidence_notes
   output_rules:
     - YAML is internal only; never include a YAML block in user-facing output.
-    - Do not show inline links or a sources footer in user-facing output.
+    - End every report with a "## 🔗 Sources" section listing each URL fetched during research as a markdown hyperlink with a short "Site - Topic" label, e.g. [Chase - Sapphire Preferred](https://creditcards.chase.com/...).
     - Use one emoji per section heading.
     - Use numbered lists for list-heavy sections.
     - Omit the Card Identity section when the card match is confident.
@@ -31,6 +31,7 @@ commands:
       - "## ✅ Eligibility"
       - "## 🧭 Strategy"
       - "## 📋 Confidence Notes"
+      - "## 🔗 Sources"
     required_top_level_keys:
       - card_name
       - issuer
@@ -80,6 +81,7 @@ commands:
       - "## 🤝 Transfer Partners"
       - "## ⚠️ Transfer Caveats"
       - "## 📋 Confidence Notes"
+      - "## 🔗 Sources"
     required_top_level_keys:
       - card_name
       - issuer
@@ -105,6 +107,7 @@ commands:
       - "## 📈 Earning Categories"
       - "## 🚫 Caps And Exclusions"
       - "## 📋 Confidence Notes"
+      - "## 🔗 Sources"
     required_top_level_keys:
       - card_name
       - issuer
@@ -130,6 +133,7 @@ commands:
       - "## 📰 Recent Updates"
       - "## 📝 Summary"
       - "## 📋 Confidence Notes"
+      - "## 🔗 Sources"
     required_top_level_keys:
       - card_name
       - issuer
@@ -155,6 +159,7 @@ commands:
       - "## 🏷️ Credit Details"
       - "## 📏 Usage Rules"
       - "## 📋 Confidence Notes"
+      - "## 🔗 Sources"
     required_top_level_keys:
       - card_name
       - issuer
@@ -183,6 +188,7 @@ commands:
       - "## ✈️ Key Benefits"
       - "## 🏆 Bottom Line"
       - "## 📋 Confidence Notes"
+      - "## 🔗 Sources"
     required_top_level_keys:
       - card_a
       - card_b
@@ -215,6 +221,7 @@ commands:
       - "## 🏷️ Credits"
       - "## 💰 Net First-Year Value"
       - "## 📋 Confidence Notes"
+      - "## 🔗 Sources"
     required_top_level_keys:
       - card_name
       - issuer
@@ -246,6 +253,7 @@ commands:
       - "## 🔁 Overlap"
       - "## 🕳️ Gaps"
       - "## 📋 Confidence Notes"
+      - "## 🔗 Sources"
     required_top_level_keys:
       - cards
       - total_annual_fees
