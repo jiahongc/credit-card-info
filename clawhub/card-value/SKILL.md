@@ -119,7 +119,7 @@ Bonus amount, spend requirement, qualification window, point valuation used.
 Earn by category based on the spend profile, with point values.
 
 ### `## 🏷️ Credits`
-Applicable statement credits with annual total.
+Statement credits, cash-back rebates, and complimentary subscriptions only — not enhanced earn rates or point multipliers. Show applicable credits with annual total.
 
 ### `## 💰 Net First-Year Value`
 Show the math clearly: `welcome_bonus + annual_earn + credits - annual_fee = net_value`.

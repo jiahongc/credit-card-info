@@ -15,6 +15,12 @@ metadata:
 
 Return the credits view of one exact card variant in compact format.
 
+## What Counts as a Credit
+
+A "credit" is a statement credit, cash-back rebate, or complimentary subscription with a concrete dollar value that directly offsets cost. Examples: "$300 travel credit," "$50 hotel credit," "complimentary DashPass membership ($120 value)."
+
+**Not credits**: enhanced earning rates (e.g., "5x on Lyft"), bonus point multipliers, anniversary point bonuses, or any benefit that only increases points earned per dollar. Those belong in card-rate, not card-credits.
+
 ## When To Use
 
 When the user asks about a card's statement credits, annual credits, or cash-back credits. Trigger phrases: "card-credits", "statement credits", "what credits", "annual credits", "perks".

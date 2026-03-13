@@ -47,7 +47,7 @@ Use training knowledge plus one issuer page fetch per card. Do NOT search second
 
 - `## 💰 Annual Cost`
 - `## 📈 Earning Map`
-- `## 🏷️ Credits Stack`
+- `## 🏷️ Credits Stack` — statement credits and complimentary subscriptions only; not enhanced earn rates or point multipliers
 - `## 🔁 Overlap`
 - `## 🕳️ Gaps`
 - `## 📋 Confidence Notes`

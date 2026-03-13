@@ -51,7 +51,7 @@ Fetch the issuer page + up to 5 secondary sources for current SUB details. Prefe
 - `## 💳 Spend Profile`
 - `## 🎁 Welcome Bonus`
 - `## 📈 Annual Earn`
-- `## 🏷️ Credits`
+- `## 🏷️ Credits` — statement credits and complimentary subscriptions only; not enhanced earn rates or point multipliers
 - `## 💰 Net First-Year Value`
 - `## 📋 Confidence Notes`
 

@@ -128,7 +128,7 @@ Total annual fees across all cards, listed per card.
 Table showing the best card for each major spend category (dining, travel, groceries, gas, streaming, other).
 
 ### `## 🏷️ Credits Stack`
-All statement credits across the wallet with total annual value.
+Statement credits, cash-back rebates, and complimentary subscriptions only — not enhanced earn rates or point multipliers. All credits across the wallet with total annual value.
 
 ### `## 🔁 Overlap`
 Numbered list of redundant earn categories or duplicate benefits.

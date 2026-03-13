@@ -17,6 +17,8 @@
   - portal/cash-out/minimum redemption caveats
 - `🏷️ Credits`
   - reused by `/card-credits`
+  - includes only statement credits, cash-back rebates, and complimentary subscriptions with concrete dollar values
+  - does NOT include enhanced earning rates, bonus point multipliers, or anniversary point bonuses (those go in Earning Rates)
 - `✈️ Travel Benefits`
   - lounge access, hotel benefits, rental car benefits, travel protection benefits, travel credits
 - `🛡️ Protections`

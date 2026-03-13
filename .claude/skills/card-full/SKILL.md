@@ -50,3 +50,5 @@ Fetch the issuer page first, then up to 5 secondary sources for current SUB/offe
 - `## 📋 Confidence Notes`
 
 Omit `## Card Identity` when the match is confident. Each section should contain condensed facts in numbered lists where appropriate.
+
+The `## 🏷️ Credits` section includes only statement credits, cash-back rebates, and complimentary subscriptions with concrete dollar values. It does NOT include enhanced earning rates (e.g., "5x on Lyft"), bonus point multipliers, or anniversary point bonuses — those belong in `## 📈 Earning Rates`.

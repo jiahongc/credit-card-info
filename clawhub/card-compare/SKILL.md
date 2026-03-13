@@ -116,7 +116,7 @@ Two-column table: annual fee, foreign transaction fee, net after credits.
 Two-column table: key categories with multipliers for each card.
 
 ### `## 🏷️ Credits`
-Two-column comparison of statement credits.
+Two-column comparison of statement credits, cash-back rebates, and complimentary subscriptions only — not enhanced earn rates or point multipliers.
 
 ### `## 🔄 Transfer Partners`
 Two-column comparison of transfer programs and partner count.

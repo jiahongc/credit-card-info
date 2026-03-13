@@ -153,7 +153,7 @@ Base rate, bonus categories with multipliers, caps, point currency.
 Transfer partners summary, portal options, cash-out rates, minimum redemption.
 
 ### `## 🏷️ Credits`
-Each credit with amount, cadence, trigger, and restrictions.
+Statement credits, cash-back rebates, and complimentary subscriptions with concrete dollar values only. Each credit with amount, cadence, trigger, and restrictions. Do NOT include enhanced earning rates (e.g., "5x on Lyft"), bonus point multipliers, or anniversary point bonuses — those go in Earning Rates.
 
 ### `## ✈️ Travel Benefits`
 Lounge access, hotel status, rental car benefits, travel credits, companion fares.
