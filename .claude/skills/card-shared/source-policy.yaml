@@ -148,37 +148,46 @@ search_method:
     - Free tier allows 2000 queries/month
 
 fast_search_policy:
-  target_budget: 30s
+  target_budget: 45s
   phases:
     - name: resolve
       budget: 0-5s
       action: Normalize card name, resolve exact variant using card-identity-rules.
     - name: search
-      budget: 5-15s
+      budget: 5-10s
       action: One Brave API call with site filters for issuer (and secondary if search-required).
+    - name: fetch
+      budget: 10-25s
+      action: |
+        Fetch the top issuer page URL and secondary source URLs from search results.
+        Use: curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+        For knowledge-first: fetch issuer page + 1 preferred secondary.
+        For search-required: fetch issuer page + up to 2 preferred secondaries.
+        Run fetches in parallel when possible.
     - name: finalize
-      budget: 15-30s
-      action: Assemble compact output from search snippets + training knowledge. Flag unresolved fields in confidence_notes.
+      budget: 25-45s
+      action: Assemble compact output from fetched page content + search snippets + training knowledge. Flag unresolved fields in confidence_notes.
   command_source_ceilings:
     card-rate:
       strategy: knowledge-first
       max_secondary: 1
       notes: Issuer page + one secondary for merchant-coding caveats.
-      preferred: [bankrate.com]
+      preferred: [bankrate.com, thepointsguy.com]
     card-credits:
       strategy: knowledge-first
       max_secondary: 1
       notes: Issuer page + one secondary for credit trigger details.
-      preferred: [bankrate.com]
+      preferred: [thepointsguy.com, bankrate.com]
     card-transfer:
       strategy: knowledge-first
       max_secondary: 1
       notes: Issuer page + one secondary for current transfer ratios.
-      preferred: [thepointsguy.com]
+      preferred: [thepointsguy.com, onemileatatime.com]
     card-wallet:
       strategy: knowledge-first
-      max_secondary: 0
-      notes: One issuer page per card + training data only.
+      max_secondary: 1
+      notes: One issuer page per card + one secondary for cross-checking.
+      preferred: [thepointsguy.com]
     card-full:
       strategy: search-required
       max_secondary: 5

@@ -24,11 +24,16 @@ Use training knowledge plus one issuer page fetch + one secondary source for cur
    curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+transfer+partners+site:ISSUER_DOMAIN&count=5" -H "X-Subscription-Token: $BRAVE_API_KEY"
    ```
    If `$BRAVE_API_KEY` is not set, fall back to WebSearch.
-3. Combine the search snippets with training knowledge to fill all required sections. Use up to 1 secondary source (prefer The Points Guy) for current transfer ratios if needed.
-4. Follow [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md). Flag any detail that may have changed since training data.
-5. Return compact markdown using the `card-transfer` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
-6. YAML is internal only — do not include it in user-facing output.
-7. Do not show inline links, a sources footer, or a "Why It Matters" section.
+3. **Fetch pages** — pick the top issuer URL and top 1 secondary URL (prefer thepointsguy.com, then onemileatatime.com) from the search results. Fetch both in parallel:
+   ```
+   curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+   ```
+   Search snippets are too shallow for transfer partner lists — the full page has complete partner tables and ratios.
+4. Combine the fetched page content + search snippets + training knowledge to fill all required sections.
+5. Follow [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md). Flag any detail that may have changed since training data.
+6. Return compact markdown using the `card-transfer` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
+7. YAML is internal only — do not include it in user-facing output.
+8. Do not show inline links, a sources footer, or a "Why It Matters" section.
 
 ## Required Sections
 

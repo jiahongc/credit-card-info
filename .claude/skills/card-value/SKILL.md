@@ -33,7 +33,12 @@ Fetch the issuer page + up to 5 secondary sources for current SUB details. Prefe
    curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+welcome+offer+annual+fee&count=20" -H "X-Subscription-Token: $BRAVE_API_KEY"
    ```
    If `$BRAVE_API_KEY` is not set, fall back to WebSearch.
-3. Research: annual fee, welcome offer (bonus + spend requirement), earning rates by category, and statement credits.
+3. **Fetch pages** — pick the top issuer URL and up to 2 secondary URLs (prefer nerdwallet.com and thepointsguy.com) from the search results. Fetch in parallel:
+   ```
+   curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+   ```
+   Search snippets are too shallow for value calculations — the actual pages have complete credit values, earning rates, and offer details.
+4. Research: annual fee, welcome offer (bonus + spend requirement), earning rates by category, and statement credits.
 4. Compute: `first_year_value = welcome_bonus_value + annual_earn_value + total_credits - annual_fee`.
 5. Use 1 cpp as the baseline point value unless the card has a known portal or transfer premium (note the assumed valuation in confidence notes).
 6. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).

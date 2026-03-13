@@ -93,7 +93,17 @@ curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+credits+ben
   -H "X-Subscription-Token: $BRAVE_API_KEY"
 ```
 
-Use up to 1 secondary source (prefer Bankrate) for credit trigger details if needed. Combine the issuer search snippets with training knowledge.
+Use up to 1 secondary source (prefer thepointsguy.com, then bankrate.com) for credit trigger details if needed.
+
+## Step 3: Fetch Pages
+
+Pick the top issuer URL and top 1 secondary URL from the search results. Fetch both in parallel:
+
+```bash
+curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+```
+
+Search snippets are too shallow for credits — the full page has the complete credit list. Combine the fetched page content + search snippets + training knowledge.
 
 ## Required Output Sections
 
@@ -111,7 +121,8 @@ Flag any detail that may have changed since training data.
 
 ## Output Rules
 
-- Use one emoji per section heading and numbered lists for credits.
+- Use one emoji per section heading and numbered lists
+- When listing credits, fees, or any monetary amounts, sort from highest to lowest dollar value. for credits.
 - Keep content to condensed facts — no prose padding.
 - Omit the Card Identity section when the match is confident.
 - Do not show inline links, sources footer, or YAML blocks in output.

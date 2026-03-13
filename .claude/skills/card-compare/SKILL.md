@@ -25,7 +25,12 @@ Fetch both issuer pages in parallel + up to 5 secondary sources total for curren
    curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD_A+vs+CARD_B+compare&count=20" -H "X-Subscription-Token: $BRAVE_API_KEY"
    ```
    If `$BRAVE_API_KEY` is not set, fall back to WebSearch.
-4. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
+4. **Fetch pages** — pick the issuer URL for each card and up to 2 secondary URLs (prefer nerdwallet.com and thepointsguy.com) from the search results. Fetch in parallel:
+   ```
+   curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+   ```
+   Search snippets are too shallow for accurate comparisons — the actual pages have complete rate tables, credit lists, and benefit details.
+5. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
 5. Return compact markdown using the `card-compare` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
 6. YAML is internal only — do not include it in user-facing output.
 7. Do not show inline links, a sources footer, or a "Why It Matters" section.

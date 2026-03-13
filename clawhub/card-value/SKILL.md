@@ -97,6 +97,16 @@ curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+welcome+off
 - **Max 5 secondary sources** from: NerdWallet (preferred), The Points Guy (preferred), Bankrate (preferred), One Mile at a Time (preferred), Doctor of Credit (preferred), Upgraded Points.
 - **Disallowed**: Reddit, Facebook, Instagram, TikTok, X, YouTube, referral links, user forums.
 
+## Step 4: Fetch Pages
+
+Pick the top issuer URL and up to 2 secondary URLs (prefer nerdwallet.com and thepointsguy.com) from the search results. Fetch in parallel:
+
+```bash
+curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+```
+
+Search snippets are too shallow for value calculations — the actual pages have complete credit values, earning rates, and offer details.
+
 ## Required Output Sections
 
 ### `## 💳 Spend Profile`
@@ -120,6 +130,7 @@ Flag any uncertain claims. Note the cpp valuation assumed.
 ## Output Rules
 
 - Use one emoji per section heading.
+- When listing credits, fees, or any monetary amounts, sort from highest to lowest dollar value.
 - Show the math clearly in the Net First-Year Value section.
 - Keep content to condensed facts — no prose padding.
 - Omit the Card Identity section when the match is confident.

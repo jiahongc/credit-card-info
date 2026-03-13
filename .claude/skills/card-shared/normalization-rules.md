@@ -59,6 +59,7 @@ Add optional fields only when the command needs them, such as:
 - Do not show inline links or a sources footer in user-facing output.
 - Use one emoji per section heading (e.g., `## 💰 Fees`).
 - Use numbered lists for list-heavy sections (credits, transfer partners, earning categories, news items).
+- When listing credits, fees, or any monetary amounts, sort from highest to lowest dollar value.
 - Keep section content to condensed facts. No prose padding.
 - Omit the Card Identity section when the card match is confident.
 - Show Card Identity only when the match is ambiguous or unconfirmed.

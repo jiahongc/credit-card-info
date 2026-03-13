@@ -91,7 +91,17 @@ curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+site:ISSUER
   -H "X-Subscription-Token: $BRAVE_API_KEY"
 ```
 
-Run all calls in parallel. Do NOT search secondary sources. Combine with training knowledge.
+Run all calls in parallel. Optionally use 1 secondary source (prefer thepointsguy.com) for cross-checking.
+
+### Fetch Pages
+
+For each card, fetch the top issuer URL from search results. Optionally fetch 1 secondary URL:
+
+```bash
+curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+```
+
+Run fetches in parallel. Search snippets alone miss detailed credit and rate info. Combine fetched page content + search snippets + training knowledge.
 
 ### Issuer Domains
 
@@ -132,6 +142,7 @@ Flag any uncertain, unconfirmed, or conflicting claims.
 ## Output Rules
 
 - Use one emoji per section heading and numbered lists for overlap/gaps.
+- When listing credits, fees, or any monetary amounts, sort from highest to lowest dollar value.
 - Keep content to condensed facts — no prose padding.
 - Omit the Card Identity section when all matches are confident.
 - Do not show inline links, sources footer, or YAML blocks in output.

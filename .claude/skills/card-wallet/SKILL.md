@@ -26,8 +26,13 @@ Use training knowledge plus one issuer page fetch per card. Do NOT search second
 
 1. Parse the card list from the input (comma-separated).
 2. Resolve each card using [../card-identity/SKILL.md](../card-identity/SKILL.md). If any card is ambiguous, return a numbered choice list for that card and stop.
-3. For each card, run one Brave Search API call scoped to that issuer's domain (see `search_method` in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml)). Run all calls in parallel. Do not search secondary sources. Supplement with training knowledge.
-4. For each card, collect: annual fee, top earning categories, statement credits, and key benefits.
+3. For each card, run one Brave Search API call scoped to that issuer's domain (see `search_method` in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml)). Run all calls in parallel. Supplement with training knowledge.
+4. **Fetch pages** — for each card, fetch the top issuer URL from search results. Optionally fetch 1 secondary URL (prefer thepointsguy.com) for cross-checking:
+   ```
+   curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+   ```
+   Run fetches in parallel. Search snippets alone miss detailed credit and rate info.
+5. For each card, collect: annual fee, top earning categories, statement credits, and key benefits.
 5. Identify: overlapping earning categories (where two cards cover the same spend at different rates), uncovered spend categories (common categories not covered at a bonus rate by any card), redundant benefits (same benefit on multiple cards), and total annual fee burden.
 6. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
 7. Return compact markdown using the `card-wallet` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).

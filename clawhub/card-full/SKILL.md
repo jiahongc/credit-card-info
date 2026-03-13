@@ -126,7 +126,17 @@ Parse the JSON response — results are in `.web.results[]` with `.title`, `.url
 | U.S. Bank | usbank.com |
 | Wells Fargo | wellsfargo.com |
 
-## Step 3: Required Output Sections
+## Step 3: Fetch Pages
+
+Pick the top issuer URL and up to 2 secondary URLs (prefer thepointsguy.com and nerdwallet.com) from the search results. Fetch in parallel:
+
+```bash
+curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+```
+
+Search snippets are too shallow for full reports — the actual pages have complete credit lists, rate tables, and benefit details.
+
+## Step 4: Required Output Sections
 
 Return compact markdown with these sections in order:
 
@@ -166,6 +176,7 @@ Flag any uncertain, unconfirmed, or conflicting claims.
 ## Output Rules
 
 - Use one emoji per section heading.
+- When listing credits, fees, or any monetary amounts, sort from highest to lowest dollar value.
 - Use numbered lists for list-heavy sections.
 - Keep content to condensed facts — no prose padding.
 - Omit the Card Identity section when the match is confident.

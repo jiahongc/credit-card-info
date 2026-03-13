@@ -111,7 +111,17 @@ curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+site:ISSUER
 | U.S. Bank | usbank.com |
 | Wells Fargo | wellsfargo.com |
 
-Use up to 1 secondary source (prefer Bankrate) for merchant-coding caveats if needed. Combine the issuer search snippets with training knowledge.
+Use up to 1 secondary source (prefer bankrate.com, then thepointsguy.com) for merchant-coding caveats if needed.
+
+## Step 3: Fetch Pages
+
+Pick the top issuer URL and top 1 secondary URL from the search results. Fetch both in parallel:
+
+```bash
+curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+```
+
+Search snippets are too shallow for earning details — the full page has complete rate tables and caps. Combine the fetched page content + search snippets + training knowledge.
 
 ## Required Output Sections
 
@@ -129,7 +139,8 @@ Flag any detail that may have changed since training data.
 
 ## Output Rules
 
-- Use one emoji per section heading and numbered lists for categories.
+- Use one emoji per section heading and numbered lists
+- When listing credits, fees, or any monetary amounts, sort from highest to lowest dollar value. for categories.
 - Keep content to condensed facts — no prose padding.
 - Omit the Card Identity section when the match is confident.
 - Do not show inline links, sources footer, or YAML blocks in output.

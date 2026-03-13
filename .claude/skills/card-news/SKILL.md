@@ -25,7 +25,12 @@ Fetch issuer newsroom + up to 5 secondary sources for recent coverage. Prefer Do
    curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+news+CURRENT_YEAR&count=20&freshness=pm" -H "X-Subscription-Token: $BRAVE_API_KEY"
    ```
    The `freshness=pm` parameter limits results to the past month. If `$BRAVE_API_KEY` is not set, fall back to WebSearch.
-4. Follow [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
+4. **Fetch pages** — pick up to 2 top article URLs (prefer doctorofcredit.com and thepointsguy.com) from the search results. Fetch in parallel:
+   ```
+   curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+   ```
+   News snippets often lack dates and detail — the full article has the complete story and timeline.
+5. Follow [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
 5. Return compact markdown using the `card-news` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
 6. YAML is internal only — do not include it in user-facing output.
 7. Do not show inline links, a sources footer, or a "Why It Matters" section.

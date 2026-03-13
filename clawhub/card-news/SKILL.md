@@ -99,6 +99,16 @@ The `freshness=pm` parameter limits results to the past month. Replace `CURRENT_
 - **Include**: direct card changes, issuer updates that materially affect the card, major approved-site coverage that changes how the card should be understood.
 - **Exclude**: generic issuer chatter, evergreen "best card" articles that do not describe a recent change.
 
+## Step 4: Fetch Pages
+
+Pick up to 2 top article URLs (prefer doctorofcredit.com and thepointsguy.com) from the search results. Fetch in parallel:
+
+```bash
+curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+```
+
+News snippets often lack dates and detail — the full article has the complete story and timeline.
+
 ## Required Output Sections
 
 ### `## 📅 News Window`
@@ -115,7 +125,8 @@ Flag any uncertain, unconfirmed, or conflicting claims.
 
 ## Output Rules
 
-- Use one emoji per section heading and numbered lists for updates.
+- Use one emoji per section heading and numbered lists
+- When listing credits, fees, or any monetary amounts, sort from highest to lowest dollar value. for updates.
 - Keep content to condensed facts — no prose padding.
 - Omit the Card Identity section when the match is confident.
 - Do not show inline links, sources footer, or YAML blocks in output.

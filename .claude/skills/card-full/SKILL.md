@@ -24,7 +24,12 @@ Fetch the issuer page first, then up to 5 secondary sources for current SUB/offe
    curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+review+welcome+offer&count=20" -H "X-Subscription-Token: $BRAVE_API_KEY"
    ```
    If `$BRAVE_API_KEY` is not set, fall back to WebSearch. Stop early if the contract is satisfied.
-3. Follow section composition rules from [../card-shared/section-definitions.md](../card-shared/section-definitions.md).
+3. **Fetch pages** — pick the top issuer URL and up to 2 secondary URLs (prefer thepointsguy.com and nerdwallet.com) from the search results. Fetch in parallel:
+   ```
+   curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
+   ```
+   Search snippets are too shallow for full reports — the actual pages have complete credit lists, rate tables, and benefit details.
+4. Follow section composition rules from [../card-shared/section-definitions.md](../card-shared/section-definitions.md).
 4. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
 5. Return compact markdown using the `card-full` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
 6. YAML is internal only — do not include it in user-facing output.
