@@ -22,9 +22,9 @@ Fetch issuer newsroom + up to 5 secondary sources for recent coverage. Prefer Do
 2. Apply the 3-month lookback and inclusion rules from [../card-shared/recency-rules.md](../card-shared/recency-rules.md).
 3. Run one Brave Search API call (see `search_method` in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml)):
    ```
-   curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+news+changes+CURRENT_YEAR&count=10&freshness=pm" -H "X-Subscription-Token: $BRAVE_API_KEY"
+   curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+news+changes+CURRENT_YEAR&count=10&freshness=p3m" -H "X-Subscription-Token: $BRAVE_API_KEY"
    ```
-   The `freshness=pm` parameter limits results to the past month. If `$BRAVE_API_KEY` is not set, fall back to WebSearch.
+   The `freshness=p3m` parameter limits results to the past 3 months, matching the lookback window. If `$BRAVE_API_KEY` is not set, fall back to WebSearch.
 4. **Fetch pages** — pick up to 2 top article URLs (prefer doctorofcredit.com and thepointsguy.com) from the search results. Fetch in parallel:
    ```
    curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200

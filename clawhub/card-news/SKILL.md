@@ -81,11 +81,11 @@ American Express, Bank of America, Barclays, Bilt, Capital One, Chase, Citi, Dis
 Run one Brave Search API call with freshness filter:
 
 ```bash
-curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+news+CURRENT_YEAR&count=20&freshness=pm" \
+curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+news+CURRENT_YEAR&count=20&freshness=p3m" \
   -H "X-Subscription-Token: $BRAVE_API_KEY"
 ```
 
-The `freshness=pm` parameter limits results to the past month. Replace `CURRENT_YEAR` with the actual current year.
+The `freshness=p3m` parameter limits results to the past 3 months, matching the lookback window. Replace `CURRENT_YEAR` with the actual current year.
 
 ### Source Policy
 
