@@ -14,7 +14,7 @@ Return a compact side-by-side comparison of two exact card variants.
 
 ## Search Strategy: search-required
 
-Fetch both issuer pages in parallel + up to 2 secondary sources total for current offer details. Prefer NerdWallet and The Points Guy.
+Fetch both issuer pages in parallel + up to 5 secondary sources total for current offer details. Prefer NerdWallet, The Points Guy, Doctor of Credit, One Mile at a Time, and Bankrate.
 
 ## Workflow
 
@@ -22,7 +22,7 @@ Fetch both issuer pages in parallel + up to 2 secondary sources total for curren
 2. Resolve each card using [../card-identity/SKILL.md](../card-identity/SKILL.md). If either is ambiguous, return a numbered choice list for the ambiguous card and stop.
 3. Run one Brave Search API call per card covering issuer + secondary sources (see `search_method` in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml)):
    ```
-   curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD_A+vs+CARD_B+compare&count=10" -H "X-Subscription-Token: $BRAVE_API_KEY"
+   curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD_A+vs+CARD_B+compare&count=20" -H "X-Subscription-Token: $BRAVE_API_KEY"
    ```
    If `$BRAVE_API_KEY` is not set, fall back to WebSearch.
 4. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).

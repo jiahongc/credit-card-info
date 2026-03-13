@@ -182,6 +182,7 @@ and travel credits remain unchanged.
 
 - **Issuer-first**: always checks the card's official product page before secondary sources
 - **Fast**: uses Brave Search API for ~1s lookups instead of slow page fetches; knowledge-first commands answer in seconds
+- **Deep**: search-required commands pull up to 5 secondary sources; knowledge-first commands use 1 secondary for cross-checks
 - **Compact**: emoji section headings, numbered lists, no prose padding
 - **Honest**: unresolved fields are flagged in confidence notes, never invented
 - **6 curated sources**: NerdWallet, The Points Guy, Doctor of Credit, Bankrate, One Mile at a Time, Upgraded Points (see [`source-policy.yaml`](.claude/skills/card-shared/source-policy.yaml))
@@ -198,6 +199,7 @@ Follows the [Agent Skills](https://agentskills.io) open standard — one `SKILL.
 | OpenAI Codex | `.agents/skills/` |
 | Cursor | `.cursor/skills/` |
 | Gemini CLI | `.gemini/skills/` |
+| ClawHub | [`clawhub/`](clawhub/) (self-contained, ready to publish) |
 | Others | see [agentskills.io](https://agentskills.io) |
 
 ---

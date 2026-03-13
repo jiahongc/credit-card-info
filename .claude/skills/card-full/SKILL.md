@@ -14,14 +14,14 @@ Return a compact, complete card framework for one exact card variant.
 
 ## Search Strategy: search-required
 
-Fetch the issuer page first, then up to 2 secondary sources for current SUB/offer details. Prefer NerdWallet and The Points Guy. Run searches in parallel.
+Fetch the issuer page first, then up to 5 secondary sources for current SUB/offer details. Prefer NerdWallet, The Points Guy, Doctor of Credit, Bankrate, and One Mile at a Time. Run searches in parallel.
 
 ## Workflow
 
 1. Resolve the card using [../card-identity/SKILL.md](../card-identity/SKILL.md). If ambiguous, return a numbered choice list and stop.
 2. Run one Brave Search API call covering the issuer domain + preferred secondary sources (see `search_method` in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml)):
    ```
-   curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+review+welcome+offer&count=10" -H "X-Subscription-Token: $BRAVE_API_KEY"
+   curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+review+welcome+offer&count=20" -H "X-Subscription-Token: $BRAVE_API_KEY"
    ```
    If `$BRAVE_API_KEY` is not set, fall back to WebSearch. Stop early if the contract is satisfied.
 3. Follow section composition rules from [../card-shared/section-definitions.md](../card-shared/section-definitions.md).

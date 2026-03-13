@@ -14,7 +14,7 @@ Return the earning-structure view of one exact card variant in compact format.
 
 ## Search Strategy: knowledge-first
 
-Use training knowledge plus one issuer page fetch. Do NOT search secondary sources. Do NOT spawn a subagent — answer directly.
+Use training knowledge plus one issuer page fetch + one secondary source for merchant-coding caveats. Do NOT spawn a subagent — answer directly.
 
 ## Workflow
 
@@ -24,7 +24,7 @@ Use training knowledge plus one issuer page fetch. Do NOT search secondary sourc
    curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+site:ISSUER_DOMAIN&count=5" -H "X-Subscription-Token: $BRAVE_API_KEY"
    ```
    If `$BRAVE_API_KEY` is not set, fall back to WebSearch.
-3. Combine the search snippets with training knowledge to fill all required sections. Do not search secondary sources.
+3. Combine the search snippets with training knowledge to fill all required sections. Use up to 1 secondary source (prefer Bankrate) for merchant-coding caveats if needed.
 4. Follow [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md). Flag any detail that may have changed since training data.
 5. Return compact markdown using the `card-rate` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
 6. YAML is internal only — do not include it in user-facing output.

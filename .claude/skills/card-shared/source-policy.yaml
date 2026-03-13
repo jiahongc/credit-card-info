@@ -121,7 +121,7 @@ search_method:
         -H "X-Subscription-Token: $BRAVE_API_KEY"
 
     For search-required commands (issuer + secondary in one call):
-      curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD_NAME+QUERY_TERMS&count=10" \
+      curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD_NAME+QUERY_TERMS&count=20" \
         -H "X-Subscription-Token: $BRAVE_API_KEY"
 
     Parse the JSON response — results are in .web.results[] with .title, .url, .description fields.
@@ -146,40 +146,43 @@ fast_search_policy:
   command_source_ceilings:
     card-rate:
       strategy: knowledge-first
-      max_secondary: 0
-      notes: Issuer page + training data only.
+      max_secondary: 1
+      notes: Issuer page + one secondary for merchant-coding caveats.
+      preferred: [bankrate.com]
     card-credits:
       strategy: knowledge-first
-      max_secondary: 0
-      notes: Issuer page + training data only.
+      max_secondary: 1
+      notes: Issuer page + one secondary for credit trigger details.
+      preferred: [bankrate.com]
     card-transfer:
       strategy: knowledge-first
-      max_secondary: 0
-      notes: Issuer page + training data only.
+      max_secondary: 1
+      notes: Issuer page + one secondary for current transfer ratios.
+      preferred: [thepointsguy.com]
     card-wallet:
       strategy: knowledge-first
       max_secondary: 0
       notes: One issuer page per card + training data only.
     card-full:
       strategy: search-required
-      max_secondary: 2
+      max_secondary: 5
       parallel: true
-      preferred: [nerdwallet.com, thepointsguy.com]
+      preferred: [nerdwallet.com, thepointsguy.com, doctorofcredit.com, bankrate.com, onemileatatime.com]
     card-news:
       strategy: search-required
-      max_secondary: 2
+      max_secondary: 5
       parallel: true
-      preferred: [doctorofcredit.com, thepointsguy.com]
+      preferred: [doctorofcredit.com, thepointsguy.com, onemileatatime.com, nerdwallet.com, bankrate.com]
     card-compare:
       strategy: search-required
-      max_secondary: 2
+      max_secondary: 5
       parallel: true
-      preferred: [nerdwallet.com, thepointsguy.com]
+      preferred: [nerdwallet.com, thepointsguy.com, doctorofcredit.com, onemileatatime.com, bankrate.com]
     card-value:
       strategy: search-required
-      max_secondary: 2
+      max_secondary: 5
       parallel: true
-      preferred: [nerdwallet.com, thepointsguy.com]
+      preferred: [nerdwallet.com, thepointsguy.com, bankrate.com, onemileatatime.com, doctorofcredit.com]
   stop_rules:
     - Stop once all required contract fields are covered.
     - Do not chase optional details after the contract is satisfied.

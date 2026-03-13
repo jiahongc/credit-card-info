@@ -23,14 +23,14 @@ If no breakdown is given, use a default moderate-spender profile ($500/mo dining
 
 ## Search Strategy: search-required
 
-Fetch the issuer page + up to 2 secondary sources for current SUB details. Prefer NerdWallet and The Points Guy. Run searches in parallel.
+Fetch the issuer page + up to 5 secondary sources for current SUB details. Prefer NerdWallet, The Points Guy, Bankrate, One Mile at a Time, and Doctor of Credit. Run searches in parallel.
 
 ## Workflow
 
 1. Resolve the card using [../card-identity/SKILL.md](../card-identity/SKILL.md). If ambiguous, return a numbered choice list and stop.
 2. Run one Brave Search API call covering issuer + secondary sources (see `search_method` in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml)):
    ```
-   curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+welcome+offer+annual+fee&count=10" -H "X-Subscription-Token: $BRAVE_API_KEY"
+   curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+welcome+offer+annual+fee&count=20" -H "X-Subscription-Token: $BRAVE_API_KEY"
    ```
    If `$BRAVE_API_KEY` is not set, fall back to WebSearch.
 3. Research: annual fee, welcome offer (bonus + spend requirement), earning rates by category, and statement credits.

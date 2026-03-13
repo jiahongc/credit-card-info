@@ -14,7 +14,7 @@ Return the last-3-month news view of one exact card variant in compact format.
 
 ## Search Strategy: search-required
 
-Fetch issuer newsroom + up to 2 secondary sources for recent coverage. Prefer Doctor of Credit and The Points Guy. Run all searches in parallel.
+Fetch issuer newsroom + up to 5 secondary sources for recent coverage. Prefer Doctor of Credit, The Points Guy, One Mile at a Time, NerdWallet, and Bankrate. Run all searches in parallel.
 
 ## Workflow
 
@@ -22,7 +22,7 @@ Fetch issuer newsroom + up to 2 secondary sources for recent coverage. Prefer Do
 2. Apply the 3-month lookback and inclusion rules from [../card-shared/recency-rules.md](../card-shared/recency-rules.md).
 3. Run one Brave Search API call for recent news (see `search_method` in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml)):
    ```
-   curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+news+2026&count=10&freshness=pm" -H "X-Subscription-Token: $BRAVE_API_KEY"
+   curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+news+CURRENT_YEAR&count=20&freshness=pm" -H "X-Subscription-Token: $BRAVE_API_KEY"
    ```
    The `freshness=pm` parameter limits results to the past month. If `$BRAVE_API_KEY` is not set, fall back to WebSearch.
 4. Follow [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
