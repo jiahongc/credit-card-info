@@ -37,84 +37,46 @@ The user provides a comma-separated list of card names:
 
 ### Common Abbreviations
 
+Only shorthands and ambiguous names need entries here. Cards with full, unambiguous names (e.g., "Chase Marriott Bonvoy Boundless", "Chase United Explorer", "American Express Hilton Honors Aspire") are resolved via search — no table entry needed.
+
 | Input | Resolved |
 |---|---|
 | CSP | Chase Sapphire Preferred |
 | CSR | Chase Sapphire Reserve |
 | CFU | Chase Freedom Unlimited |
 | CFF | Chase Freedom Flex |
+| CIP | Chase Ink Business Preferred |
+| CIC | Chase Ink Business Cash |
+| CIU | Chase Ink Business Unlimited |
 | Amex Gold | American Express Gold Card |
 | Amex Plat | American Express Platinum Card |
-| Venture X | Capital One Venture X Rewards Credit Card |
-| Savor | Capital One SavorOne / Savor (ambiguous — ask) |
-| Double Cash | Citi Double Cash Card |
-| Custom Cash | Citi Custom Cash Card |
-| Bilt | Bilt Blue / Obsidian / Palladium (ambiguous — ask) |
-| Bilt Blue | Bilt Blue Card |
-| Bilt Obsidian | Bilt Obsidian Card |
-| Bilt Palladium | Bilt Palladium Card |
-| Robinhood | Robinhood Gold Card / Cash Card (ambiguous — ask) |
-| Robinhood Gold | Robinhood Gold Card |
-| Robinhood Cash | Robinhood Cash Card |
 | Amex Biz Gold | American Express Business Gold Card |
 | Amex Biz Plat | American Express Business Platinum Card |
 | Amex Blue Biz Plus | American Express Blue Business Plus Card |
 | Amex Blue Biz Cash | American Express Blue Business Cash Card |
+| Venture X | Capital One Venture X Rewards Credit Card |
+| Venture X Business | Capital One Venture X Business Card |
+| Savor | Capital One SavorOne / Savor (ambiguous — ask) |
+| Spark Cash Plus | Capital One Spark Cash Plus |
+| Spark Miles | Capital One Spark Miles |
+| Double Cash | Citi Double Cash Card |
+| Custom Cash | Citi Custom Cash Card |
 | Ink Preferred | Chase Ink Business Preferred |
 | Ink Cash | Chase Ink Business Cash |
 | Ink Unlimited | Chase Ink Business Unlimited |
-| CIU | Chase Ink Business Unlimited |
-| CIC | Chase Ink Business Cash |
-| CIP | Chase Ink Business Preferred |
-| Spark Cash Plus | Capital One Spark Cash Plus |
-| Spark Miles | Capital One Spark Miles |
-| Venture X Business | Capital One Venture X Business Card |
+| Bilt | Bilt Blue / Obsidian / Palladium (ambiguous — ask) |
+| Robinhood | Robinhood Gold Card / Cash Card (ambiguous — ask) |
 | Aviator Red | Barclays AAdvantage Aviator Red World Elite Mastercard |
-| Aviator Business | Barclays AAdvantage Aviator Business Mastercard |
-| JetBlue Card | Barclays JetBlue Card |
-| JetBlue Plus | Barclays JetBlue Plus Card |
-| JetBlue Business | Barclays JetBlue Business Card |
 | Wyndham Rewards | Barclays Wyndham Rewards Earner Card / Plus / Business (ambiguous — ask) |
-| Wyndham Plus | Barclays Wyndham Rewards Earner Plus Card |
-| Wyndham Business | Barclays Wyndham Rewards Earner Business Card |
 | Altitude Reserve | U.S. Bank Altitude Reserve Visa Infinite Card |
 | Altitude Connect | U.S. Bank Altitude Connect Visa Signature Card |
 | Altitude Go | U.S. Bank Altitude Go Visa Signature Card |
-| Marriott Bonvoy Boundless | Chase Marriott Bonvoy Boundless Credit Card |
-| Marriott Bonvoy Bold | Chase Marriott Bonvoy Bold Credit Card |
-| Marriott Bonvoy Bountiful | Chase Marriott Bonvoy Bountiful Card |
-| Marriott Bonvoy Brilliant | American Express Marriott Bonvoy Brilliant Card |
-| Marriott Bonvoy Business | American Express Marriott Bonvoy Business Card |
-| Hilton Honors Card | American Express Hilton Honors Card |
-| Hilton Surpass | American Express Hilton Honors Surpass Card |
-| Hilton Aspire | American Express Hilton Honors Aspire Card |
-| Hilton Business | American Express Hilton Honors Business Card |
-| IHG Premier | Chase IHG One Rewards Premier Credit Card |
-| IHG Traveler | Chase IHG One Rewards Traveler Credit Card |
-| IHG Business | Chase IHG One Rewards Premier Business Credit Card |
-| World of Hyatt | Chase World of Hyatt Credit Card |
-| Hyatt Business | Chase World of Hyatt Business Credit Card |
-| United Explorer | Chase United Explorer Card |
-| United Quest | Chase United Quest Card |
-| United Club Infinite | Chase United Club Infinite Card |
-| United Gateway | Chase United Gateway Card |
-| United Business | Chase United Business Card |
-| Southwest Priority | Chase Southwest Rapid Rewards Priority Credit Card |
-| Southwest Plus | Chase Southwest Rapid Rewards Plus Credit Card |
-| Southwest Premier | Chase Southwest Rapid Rewards Premier Credit Card |
-| Southwest Performance Business | Chase Southwest Rapid Rewards Performance Business Credit Card |
-| Southwest Premier Business | Chase Southwest Rapid Rewards Premier Business Credit Card |
 | Delta Gold | American Express Delta SkyMiles Gold Card |
 | Delta Platinum | American Express Delta SkyMiles Platinum Card |
 | Delta Reserve | American Express Delta SkyMiles Reserve Card |
 | Delta Biz Gold | American Express Delta SkyMiles Gold Business Card |
 | Delta Biz Plat | American Express Delta SkyMiles Platinum Business Card |
 | Delta Biz Reserve | American Express Delta SkyMiles Reserve Business Card |
-| Alaska Airlines | Bank of America Alaska Airlines Visa Signature Credit Card |
-| Alaska Airlines Business | Bank of America Alaska Airlines Visa Business Credit Card |
-| AAdvantage MileUp | Citi AAdvantage MileUp Card |
-| AAdvantage Platinum Select | Citi AAdvantage Platinum Select World Elite Mastercard |
-| AAdvantage Executive | Citi AAdvantage Executive World Elite Mastercard |
 
 ### Supported Issuers
 
