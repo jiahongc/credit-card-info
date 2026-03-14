@@ -248,7 +248,7 @@ The American Express Gold Card has been stable during this 90-day window, with n
 # `/card-credits` — Chase Sapphire Reserve
 
 ## 💳 Credits Overview
-- Over $2,500 in potential annual statement credits and complimentary subscriptions, substantially offsetting the $550 annual fee
+- Over $2,500 in potential annual statement credits and complimentary subscriptions, substantially offsetting the $795 annual fee
 - Core value: $300 travel credit + $500 Edit hotel credit + $300 dining credit + $288 Apple subscriptions
 - Several credits are time-limited with expiration dates through 2027
 

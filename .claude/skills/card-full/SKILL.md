@@ -21,7 +21,7 @@ Fetch the issuer page first, then up to 5 secondary sources for current SUB/offe
 1. Resolve the card using [../card-identity/SKILL.md](../card-identity/SKILL.md). If ambiguous, return a numbered choice list and stop.
 2. Run one Brave Search API call (see `search_method` in [../card-shared/source-policy.yaml](../card-shared/source-policy.yaml)):
    ```
-   curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+review+benefits+welcome+offer&count=10" -H "X-Subscription-Token: $BRAVE_API_KEY"
+   curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+review+benefits+welcome+offer&count=20" -H "X-Subscription-Token: $BRAVE_API_KEY"
    ```
    If `$BRAVE_API_KEY` is not set, fall back to WebSearch. Stop early if the contract is satisfied.
 3. **Fetch pages** — pick the top issuer URL and up to 2 secondary URLs (prefer thepointsguy.com and nerdwallet.com) from the search results. Fetch in parallel:
@@ -29,13 +29,13 @@ Fetch the issuer page first, then up to 5 secondary sources for current SUB/offe
    curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
    ```
    Search snippets are too shallow for full reports — the actual pages have complete credit lists, rate tables, and benefit details.
-4. **Best public offer search** — run an additional search for `CARD NAME best public offer` or `CARD NAME elevated offer` to find any currently available elevated offers (via CardMatch, incognito, referral links, specific application URLs). Include the best available public offer in the Welcome Offer section, even if it matches the standard offer.
-5. **Historical offers search** — run a quick search for `CARD NAME historical welcome offers` or `CARD NAME past bonus offers`. If results are found, include a compact table of notable past offers with approximate date ranges and amounts.
+4. **Best public offer search** — run in parallel with steps 2–3. Search for `CARD NAME best public offer` or `CARD NAME elevated offer` to find any currently available elevated offers (via CardMatch, incognito, referral links, specific application URLs). Include the best available public offer in the Welcome Offer section, even if it matches the standard offer.
+5. **Historical offers search** — run in parallel with steps 2–3. Search for `CARD NAME historical welcome offers` or `CARD NAME past bonus offers`. If results are found, include a compact table of notable past offers with approximate date ranges and amounts.
 6. Follow section composition rules from [../card-shared/section-definitions.md](../card-shared/section-definitions.md).
-4. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
-5. Return compact markdown using the `card-full` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
-6. YAML is internal only — do not include it in user-facing output.
-7. Do not show a "Why It Matters" section.
+7. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
+8. Return compact markdown using the `card-full` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
+9. YAML is internal only — do not include it in user-facing output.
+10. Do not show a "Why It Matters" section.
 
 ## Required Sections
 

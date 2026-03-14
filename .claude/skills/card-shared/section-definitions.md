@@ -37,3 +37,7 @@
   - who should look elsewhere and why
 - `🃏 Similar Cards`
   - 4-6 competing cards with annual fee and a one-line summary of why each is comparable
+- `📋 Confidence Notes`
+  - flag uncertain, unconfirmed, or conflicting claims; keep notes short and tied to concrete uncertainties
+- `🔗 Sources`
+  - numbered list of URLs fetched during research, as markdown hyperlinks with short "Site - Topic" labels

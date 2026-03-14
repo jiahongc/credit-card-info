@@ -23,8 +23,10 @@ When the user asks for a full credit card review, breakdown, or "tell me about [
 
 1. **Resolve card identity** — normalize the input, fix abbreviations, and match to one exact card variant.
 2. **Search** — run one Brave Search API call for the card's issuer page + secondary sources.
-3. **Compile** — assemble the report using the required sections below.
-4. **Confidence** — flag uncertain or conflicting claims in the Confidence Notes section.
+3. **Fetch pages** — fetch the top issuer URL and up to 2 secondary URLs from results.
+4. **Best public offer + historical offers** — run two additional searches in parallel with steps 2–3 for elevated offers and past offer history.
+5. **Compile** — assemble the report using the required sections below.
+6. **Confidence** — flag uncertain or conflicting claims in the Confidence Notes section.
 
 ## Step 1: Card Identity Resolution
 
@@ -136,7 +138,7 @@ curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
 
 Search snippets are too shallow for full reports — the actual pages have complete credit lists, rate tables, and benefit details.
 
-## Step 4: Best Public Offer Search
+## Step 4: Best Public Offer Search (run in parallel with Steps 2–3)
 
 Run an additional search for the best currently available public offer:
 
@@ -147,7 +149,7 @@ curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+best+public
 
 Look for elevated offers via CardMatch, incognito, referral links, or specific application URLs. Include the best available public offer in the Welcome Offer section, even if it matches the standard offer.
 
-## Step 5: Historical Offers Search
+## Step 5: Historical Offers Search (run in parallel with Steps 2–3)
 
 Run a quick search for past notable offers:
 
