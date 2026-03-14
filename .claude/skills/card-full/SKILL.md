@@ -29,7 +29,9 @@ Fetch the issuer page first, then up to 5 secondary sources for current SUB/offe
    curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
    ```
    Search snippets are too shallow for full reports — the actual pages have complete credit lists, rate tables, and benefit details.
-4. Follow section composition rules from [../card-shared/section-definitions.md](../card-shared/section-definitions.md).
+4. **Best public offer search** — run an additional search for `CARD NAME best public offer` or `CARD NAME elevated offer` to find any currently available elevated offers (via CardMatch, incognito, referral links, specific application URLs). Include the best available public offer in the Welcome Offer section, even if it matches the standard offer.
+5. **Historical offers search** — run a quick search for `CARD NAME historical welcome offers` or `CARD NAME past bonus offers`. If results are found, include a compact table of notable past offers with approximate date ranges and amounts.
+6. Follow section composition rules from [../card-shared/section-definitions.md](../card-shared/section-definitions.md).
 4. Apply confidence handling from [../card-shared/confidence-rules.md](../card-shared/confidence-rules.md).
 5. Return compact markdown using the `card-full` contract in [../card-shared/command-contracts.yaml](../card-shared/command-contracts.yaml).
 6. YAML is internal only — do not include it in user-facing output.
@@ -38,7 +40,7 @@ Fetch the issuer page first, then up to 5 secondary sources for current SUB/offe
 ## Required Sections
 
 - `## 💰 Fees`
-- `## 🎁 Welcome Offer`
+- `## 🎁 Welcome Offer` — includes current public offer, best available public offer (if elevated), and a historical offers table with dates
 - `## 📈 Earning Rates`
 - `## 🔄 Redemption`
 - `## 🏷️ Credits`
@@ -47,6 +49,8 @@ Fetch the issuer page first, then up to 5 secondary sources for current SUB/offe
 - `## ⚙️ Account Mechanics`
 - `## ✅ Eligibility`
 - `## 🧭 Strategy`
+- `## 👤 Who Is This Card For?` — describe the ideal cardholder profile, who benefits most, and who should look elsewhere
+- `## 🃏 Similar Cards` — 4-6 competing cards with annual fee and a one-line summary of why each is comparable
 - `## 📋 Confidence Notes`
 - `## 🔗 Sources` — numbered list of URLs fetched, as markdown hyperlinks with short "Site - Topic" labels, e.g. `[Chase - Sapphire Preferred](https://...)`
 

@@ -136,7 +136,29 @@ curl -sS -L "URL" | sed 's/<[^>]*>//g' | tr -s '\n' | head -200
 
 Search snippets are too shallow for full reports — the actual pages have complete credit lists, rate tables, and benefit details.
 
-## Step 4: Required Output Sections
+## Step 4: Best Public Offer Search
+
+Run an additional search for the best currently available public offer:
+
+```bash
+curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+best+public+offer&count=10" \
+  -H "X-Subscription-Token: $BRAVE_API_KEY"
+```
+
+Look for elevated offers via CardMatch, incognito, referral links, or specific application URLs. Include the best available public offer in the Welcome Offer section, even if it matches the standard offer.
+
+## Step 5: Historical Offers Search
+
+Run a quick search for past notable offers:
+
+```bash
+curl -sS "https://api.search.brave.com/res/v1/web/search?q=CARD+NAME+historical+welcome+offers&count=10" \
+  -H "X-Subscription-Token: $BRAVE_API_KEY"
+```
+
+If results are found, include a compact table of notable past offers with approximate date ranges and amounts in the Welcome Offer section.
+
+## Step 6: Required Output Sections
 
 Return compact markdown with these sections in order:
 
@@ -144,7 +166,7 @@ Return compact markdown with these sections in order:
 Annual fee, authorized user fee, foreign transaction fee, balance transfer fee, cash advance fee, late fee.
 
 ### `## 🎁 Welcome Offer`
-Public bonus, spend requirement, qualification window, eligibility restrictions, lifetime/family language.
+Current public offer, best available public offer (if elevated), spend requirement, qualification window, eligibility restrictions, lifetime/family language. Include a historical offers table with date ranges and amounts if data is available.
 
 ### `## 📈 Earning Rates`
 Base rate, bonus categories with multipliers, caps, point currency.
@@ -169,6 +191,12 @@ Issuer family rules, known restriction language (e.g., Chase 5/24, Amex lifetime
 
 ### `## 🧭 Strategy`
 Downgrade paths, no-fee fallback, ecosystem role, keeper value after year one.
+
+### `## 👤 Who Is This Card For?`
+Describe the ideal cardholder profile (spending habits, travel frequency, lifestyle), who benefits most from this card's specific strengths, and who should look elsewhere and why.
+
+### `## 🃏 Similar Cards`
+4-6 competing cards with annual fee and a one-line summary of why each is comparable.
 
 ### `## 📋 Confidence Notes`
 Flag any uncertain, unconfirmed, or conflicting claims.

@@ -9,7 +9,9 @@
 - `💰 Fees`
   - annual fee, authorized user fee, foreign transaction fee, APR caveat, balance transfer fee, cash advance fee, late fee
 - `🎁 Welcome Offer`
-  - public bonus, spend requirement, qualification window, eligibility restrictions, lifetime/family language
+  - current public offer, spend requirement, qualification window, eligibility restrictions, lifetime/family language
+  - best public offer: search for elevated offers via CardMatch, incognito, referral, or specific application URLs
+  - historical offers: compact table of notable past offers with date ranges and amounts
 - `📈 Earning Rates`
   - reused by `/card-rate`
 - `🔄 Redemption`
@@ -29,3 +31,9 @@
   - issuer family rules and known restriction language
 - `🧭 Strategy`
   - downgrade paths, no-fee fallback, ecosystem role, keeper value after year one
+- `👤 Who Is This Card For?`
+  - ideal cardholder profile (spending habits, travel frequency, lifestyle)
+  - who benefits most from this card's specific strengths
+  - who should look elsewhere and why
+- `🃏 Similar Cards`
+  - 4-6 competing cards with annual fee and a one-line summary of why each is comparable
